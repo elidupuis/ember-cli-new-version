@@ -14,6 +14,16 @@ module.exports = {
     }
   },
 
+  /*
+  Set options on the environment configuration object so they can
+  be accessed via `import config from '../config/environment';`
+   */
+  config: function(env, baseConfig) {
+    if (this.options && this.options.fileName) {
+      return { newVersion: this.options };
+    }
+  },
+
   treeForPublic: function() {
     var content = this.parent.pkg.version || '';
     var fileName = this.options.fileName;
